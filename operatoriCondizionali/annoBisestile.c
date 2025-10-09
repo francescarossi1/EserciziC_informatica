@@ -9,6 +9,10 @@ int main()
     {
         printf("hai inserito un anno bisestile\n");
     }
+    else if (anno % 400 == 0)
+    {
+        printf("hai inserito un anno bisestile\n");
+    }
     else
     {
         printf("non hai inserito un anno bisestile\n");
