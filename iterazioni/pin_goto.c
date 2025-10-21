@@ -9,8 +9,5 @@ richiesta:
     {
         goto richiesta;
     }
-    else
-    {
-        printf("Accesso consentito\n");
-    }
+    printf("Accesso consentito\n");
 }
