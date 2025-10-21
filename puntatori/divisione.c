@@ -2,8 +2,11 @@
 
 void divisione(int dividendo, int divisore, int *pq, int *pr)
 {
-    *pq = dividendo / divisore;
-    *pr = dividendo % divisore;
+    if (divisore != 0)
+    {
+        *pq = dividendo / divisore;
+        *pr = dividendo % divisore;
+    }
 }
 
 int main()
