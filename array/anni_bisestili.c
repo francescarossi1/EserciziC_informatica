@@ -1,20 +1,21 @@
 #include <stdio.h>
+#define INIZIO 1900
+#define FINE 2100
 int bisestile(int anno)
 {
     return anno % 400 == 0 || anno % 4 == 0 && anno % 100 != 0;
-    ;
 }
 int main()
 {
-    int a[201];
-    int b[201];
+    int a[FINE - INIZIO + 1];
+    int b[FINE - INIZIO + 1];
     int dl;
-    for (int i = 0; i <= 200; i++)
+    for (int i = 0; i <= FINE - INIZIO; i++)
     {
         a[i] = 1900 + i;
     }
     dl = 0;
-    for (int i = 0; i <= 200; i++)
+    for (int i = 0; i <= FINE - INIZIO; i++)
     {
         if (bisestile(a[i]))
         {
