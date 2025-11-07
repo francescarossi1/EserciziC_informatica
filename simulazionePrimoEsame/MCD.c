@@ -6,16 +6,16 @@ int mcd(int a, int b)
 
         if (a < b)
         {
-            return b = b - a;
+             b = b - a;
         }
         else
         {
-            return a = a - b;
+             a = a - b;
         }
         return a;
     }
 }
-int main()
+int main(void)
 {
     int m;
     int i, j;
@@ -23,9 +23,12 @@ int main()
     scanf("%d", &m);
     for (i = 1; i <= m; i++)
     {
-        for (j = 1; i <= m; i++)
+        for (j = 1; j <= m; j++)
         {
             printf("%.3f\n", 1 / (float)(mcd(i, j)));
+            
         }
+        printf("\n");
     }
+    return 0;
 }
