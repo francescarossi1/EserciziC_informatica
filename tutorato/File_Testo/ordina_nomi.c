@@ -13,8 +13,7 @@ typedef struct
 int main()
 {
     Studente studenti[DIM];
-    FILE *pf, *pf2;
-    int letti;
+    FILE *pf, *pf2, *pf3, *pf4;
 
     if ((pf = fopen("nomi.txt", "rt")) == NULL)
     {
@@ -25,6 +24,19 @@ int main()
     if ((pf2 = fopen("ordinato.txt", "wt")) == NULL)
     {
         printf("Errore apertura\n");
+        exit(1);
+    }
+
+    // pt2
+    if ((pf3 = fopen("ordinati.dat", "wt")) == NULL) // wt per file binari
+    {
+        printf("Errore apertura file\n");
+        exit(1);
+    }
+
+    if ((pf4 = fopen("primo.txt", "wt")) == NULL) // wt per file binari
+    {
+        printf("Errore apertura file\n");
         exit(1);
     }
 
@@ -61,6 +73,20 @@ int main()
         fprintf(pf2, "%s %s %d\n", studenti[i].cognome, studenti[i].nome, studenti[i].matricola);
     }
 
+    // pt2
+    //  scrittura ordinati.dat
+    for (int i = 0; i < DIM; i++)
+    {
+        fprintf(pf3, "%s %s %d\n", studenti[i].cognome, studenti[i].nome, studenti[i].matricola);
+        // stampa a video
+        printf("%s\n", studenti[i].cognome);
+        printf("%s\n", studenti[i].nome);
+        printf("%d\n", studenti[i].matricola);
+    }
+
+    // primo.txt la prima riga del file ordinato ordinati.dat
+    fprintf(pf4, "%s %s %d\n", studenti[0].cognome, studenti[0].nome, studenti[0].matricola);
+
     if (fclose(pf) != 0)
     {
         printf("Errore chiusura\n");
@@ -70,6 +96,18 @@ int main()
     if (fclose(pf2) != 0)
     {
         printf("Errore chiusura\n");
+        exit(2);
+    }
+
+    if (fclose(pf3) != 0)
+    {
+        printf("Errore chiusura file\n");
+        exit(2);
+    }
+
+    if (fclose(pf4) != 0)
+    {
+        printf("Errore chiusura file\n");
         exit(2);
     }
 }
