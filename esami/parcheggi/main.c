@@ -5,9 +5,10 @@
 
 int main(int argc, char *argv[])
 {
-    FILE *pf;
+    FILE *pf, *scrittura;
     Record r;
     Lista listaparcheggi;
+    char t1[8], t2[8], t3[8];
 
     if (argc != 2)
     {
@@ -23,6 +24,14 @@ int main(int argc, char *argv[])
         exit(2);
     }
 
+    // scrittura
+    scrittura = fopen("ultimi3.txt", "wt");
+    if (pf == NULL)
+    {
+        printf("Errore apertura file\n");
+        exit(2);
+    }
+
     nuovaLista(&listaparcheggi);
 
     // accesso al file
@@ -31,9 +40,46 @@ int main(int argc, char *argv[])
         aggiorna(&listaparcheggi, r);
     }
 
+    stampa(listaparcheggi);
+
+    // parte 2
+
+    fseek(pf, 0, SEEK_END); // va alla fine del file
+
+    while (strcmp(t3, "") == 0)
+    {
+        if (fseek(pf, -sizeof(Record), SEEK_CUR) != 0)
+        {
+            break;
+        }
+        fread(&r, sizeof(Record), 1, pf); // legge l'ultimo record
+        if (strcmp(r.targa, t1) != 0 && strcmp(r.targa, t2) != 0 && strcmp(r.targa, t3) != 0)
+        {
+            if (strcmp(t1, "") == 0)
+            {
+                strcpy(t1, r.targa);
+            }
+            else if (strcmp(t2, "") == 0)
+            {
+                strcpy(t2, r.targa);
+            }
+            else
+            {
+                strcpy(t3, r.targa);
+            }
+        }
+        fseek(pf, -sizeof(Record), SEEK_CUR);
+    }
+    if (strcmp(t1, "") != 0)
+        fprintf(scrittura, "%s\n", t1);
+    if (strcmp(t2, "") != 0)
+        fprintf(scrittura, "%s\n", t2);
+    if (strcmp(t3, "") != 0)
+        fprintf(scrittura, "%s\n", t3);
+
     // chiusura
     fclose(pf);
+    fclose(scrittura);
 
-    stampa(listaparcheggi);
     return 0;
 }
