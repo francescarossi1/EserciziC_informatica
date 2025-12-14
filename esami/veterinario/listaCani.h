@@ -30,3 +30,7 @@ void insTesta(Lista *pl, Dato d);
 void aggiorna(Lista *pl, Record r);
 
 void stampaNonVaccinati(Lista l);
+
+/* Parte 2 */
+int contaVaccini(Dato d);
+void scriviFileVaccinati(Lista l);

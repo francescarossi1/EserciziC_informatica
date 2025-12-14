@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
     }
 
     stampaNonVaccinati(listaCani);
+    scriviFileVaccinati(listaCani);
 
     // chiusura
     fclose(pf);

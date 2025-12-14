@@ -71,3 +71,51 @@ void stampaNonVaccinati(Lista l)
         l = l->next;
     }
 }
+
+/* ---------- PARTE 2 ---------- */
+
+int contaVaccini(Dato d)
+{
+    return d.cimurro + d.epatite + d.parvovirosi;
+}
+
+static void stampaPerKVaccini(Lista l, FILE *fp, int k)
+{
+    while (1)
+    {
+        Nodo *min = NULL;
+        Nodo *p = l;
+
+        while (p != NULL)
+        {
+            if (p->dato.chip != -1 && contaVaccini(p->dato) == k)
+            {
+                if (min == NULL || p->dato.chip < min->dato.chip)
+                    min = p;
+            }
+            p = p->next;
+        }
+
+        if (min == NULL)
+            break;
+
+        fprintf(fp, "%d\n", min->dato.chip);
+        min->dato.chip = -1; // segnato come già scritto
+    }
+}
+
+void scriviFileVaccinati(Lista l)
+{
+    FILE *fp = fopen("vaccinati.txt", "wt");
+    if (fp == NULL)
+    {
+        printf("Errore apertura vaccinati.txt\n");
+        return;
+    }
+
+    stampaPerKVaccini(l, fp, 3);
+    stampaPerKVaccini(l, fp, 2);
+    stampaPerKVaccini(l, fp, 1);
+
+    fclose(fp);
+}
