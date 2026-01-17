@@ -1,0 +1,40 @@
+2018/07/23
+
+Domanda 1
+Gli array sono strutture dati omogenee, cioè contengono elementi tutti dello stesso tipo (int, float, char, ecc.).
+In linguaggio C hanno dimensione fissa, definita al momento della dichiarazione.
+Gli elementi sono memorizzati in memoria in celle contigue, ciascuna di dimensione pari a quella del tipo dell’array.
+Ogni elemento è identificato da un indice intero che parte da 0.
+L’accesso agli elementi può avvenire tramite indice oppure tramite aritmetica dei puntatori.
+Quando un array viene passato a una funzione, il suo nome decade a puntatore al primo elemento, quindi il passaggio avviene tramite indirizzo di memoria e non per valore.
+La lettura e la scrittura di un singolo elemento avviene usando l’indice, mentre per accedere a tutti gli elementi si utilizza tipicamente un ciclo for.
+
+Domanda 2
+numero matricola: 211964
+La funzione f sarà f(0)=0 f(1)=2 f(2)=1...
+Il ciclo while: 
+--i= 7, f(7)= 0, !f(--i)=0 continua
+f(6)=4 con !=1 stop 
+Il ciclo do while viene eseguito almeno una volta. 
+Con i=6 stampa 4 
+con i=5 stampa 6...
+Il ciclo finisce quando i=0
+Il numero di matricola viene stampato al contrario: 469112.
+
+Il numero di matricola considerato è 211964, che è composto da sei cifre. 
+La funzione f restituisce la cifra in posizione d del numero di matricola se d è compreso tra 1 e il numero di cifre, mentre restituisce 0 negli altri casi.
+Nel programma la variabile i viene inizializzata a 8. 
+Il primo ciclo while decrementa i prima di ogni iterazione e continua finché la funzione f restituisce 0. 
+Quando i assume il valore 7, la funzione restituisce 0 e il ciclo continua; quando i diventa 6, la funzione restituisce 4, quindi una cifra diversa da zero, e il ciclo termina. 
+Al termine del ciclo while il valore di i è quindi 6.
+Successivamente viene eseguito un ciclo do-while, che viene eseguito almeno una volta. 
+A ogni iterazione il programma stampa la cifra restituita dalla funzione f corrispondente al valore corrente di i, convertendola nel carattere numerico corrispondente, e poi decrementa i. 
+Il ciclo stampa quindi in sequenza le cifre 4, 6, 9, 1, 1 e 2. Quando i diventa 0, la funzione f restituisce 0 e il ciclo termina.
+Di conseguenza il programma stampa il numero di matricola al contrario, ovvero 469112, seguito da un carattere di nuova linea.
+
+Domanda 3 
+stringa: f("Francesca")
+Il puntatore p viene inizializzato con l’indirizzo della stringa, ma interpretato come int*.
+Incrementando p di una unità, il puntatore avanza di sizeof(int) byte (tipicamente 4).
+Il puntatore viene poi ricastato a char*, e quindi punta al carattere in posizione 4 della stringa.
+Il valore restituito è il carattere 'c'.

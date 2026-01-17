@@ -1,0 +1,32 @@
+2019/01/21
+
+Domanda 1 
+Il passaggio dei parametri per valore consiste nel passare alla funzione una copia del valore della variabile. 
+In questo caso, eventuali modifiche effettuate sul parametro all’interno della funzione non hanno effetto sulla variabile originale nel main.
+Il passaggio per riferimento, invece, permette alla funzione di modificare direttamente la variabile originale. 
+In linguaggio C non esiste un vero passaggio per riferimento, ma questo comportamento viene ottenuto passando l’indirizzo di memoria della variabile tramite puntatori. 
+Modificando il valore puntato all’interno della funzione, la modifica è visibile anche nel chiamante.
+In C il passaggio dei parametri avviene sempre per valore; tuttavia, passando puntatori come parametri è possibile ottenere un effetto equivalente al passaggio per riferimento. 
+Questo meccanismo è utilizzato, ad esempio, nel passaggio degli array alle funzioni, poiché il nome dell’array decade a puntatore al primo elemento.
+Il passaggio per valore è generalmente più sicuro, perché evita modifiche indesiderate alle variabili originali.
+
+Domanda 2
+numero matricola : 211964
+f(1)=2, f(2)=1...
+La variabile a viene inizializzata a 0 e l’array i contiene inizialmente i valori 1, 1, 1.
+Il ciclo while viene eseguito finché a è minore di 2.
+A ogni iterazione a viene incrementato prima di essere passato alla funzione f, e il valore restituito viene assegnato all’elemento dell’array di indice a. 
+Al termine del ciclo, l’array i contiene i valori 1, 2, 1.
+Successivamente il ciclo for inizializza i[0] a 2 e lo decrementa fino a 0. 
+A ogni iterazione viene stampato l’elemento dell’array il cui indice è il valore corrente di i[0]. 
+In questo modo vengono stampati, nell’ordine, gli elementi i[2], i[1] e i[0], che valgono rispettivamente 1, 2 e 0.
+
+Domanda 3 
+Le struct e le union sono tipi di dato aggregati che permettono di raggruppare più variabili, anche di tipo diverso, sotto un unico nome.
+In una struct ogni campo occupa una propria area di memoria e tutti i campi possono essere utilizzati contemporaneamente. 
+La dimensione di una struttura è pari alla somma delle dimensioni dei singoli campi, tenendo conto di eventuale padding.
+In una union, invece, tutti i campi condividono la stessa area di memoria. 
+In ogni istante è possibile utilizzare correttamente solo un campo alla volta. 
+La dimensione di una union è pari alla dimensione del suo campo più grande.
+Le struct sono utilizzate quando è necessario mantenere contemporaneamente più informazioni, 
+mentre le union sono utili quando si sa che verrà usato un solo campo alla volta e si vuole risparmiare memoria. 
