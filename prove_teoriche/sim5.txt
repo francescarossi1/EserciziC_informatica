@@ -1,0 +1,49 @@
+Domanda 1 
+Che cosa sono i cicli? Come funzionano? Fai degli esempi. 
+I cicli (o strutture iterative) sono costrutti del linguaggio di programmazione che permettono di eseguire ripetutamente un blocco di istruzioni finché una determinata condizione risulta vera.
+L’esecuzione del ciclo termina quando la condizione diventa falsa.
+Un ciclo è generalmente composto da:
+    inizializzazione delle variabili di controllo,
+    corpo del ciclo (istruzioni da ripetere),
+    aggiornamento delle variabili di controllo,
+    condizione di continuazione o terminazione.
+I principali tipi di ciclo in C sono:
+while: la condizione è valutata prima di ogni iterazione; se è falsa all’inizio, il ciclo può non essere eseguito nemmeno una volta.
+do–while: la condizione è valutata alla fine; il ciclo viene eseguito almeno una volta.
+for: raccoglie inizializzazione, condizione e aggiornamento in un’unica istruzione; si usa tipicamente quando il numero di iterazioni è noto o facilmente determinabile.
+
+Domanda 2
+matricola 211964
+f(1)=2 f(2)=1...
+
+char s[] = "abcdefghij";
+i = 0;
+while (i < strlen(s)) {
+    *(s+i) = 'x';
+    i += s[f(i%6+1)] - 'a' + 1;
+}
+
+Ad ogni iterazione:
+il carattere in posizione i viene sostituito con 'x';
+l’indice i viene incrementato di s[f(i%6+1)] - 'a' + 1.
+    Prima iterazione
+    i = 0 → i%6+1 = 1 → f(1)=2
+    s[2]='c' → incremento = 3
+    Si ottiene i = 3 e la stringa diventa:
+    xbcdefghij
+
+    Seconda iterazione
+    i = 3 → i%6+1 = 4 → f(4)=9
+    s[9]='j' → incremento = 10
+    Si ottiene i = 13 e la stringa diventa:
+    xbcxefghij
+Poiché ora i ≥ strlen(s), il ciclo termina.
+Risultato finale: la stringa risultante è
+xbcxefghij
+
+Domanda 3 
+Si possono passare gli array dentro le funzioni in C?
+In C è possibile passare gli array alle funzioni, ma non vengono mai passati per valore come le variabili scalari.
+Quando un array viene passato a una funzione, viene passato l’indirizzo del suo primo elemento, cioè un puntatore.
+Questo meccanismo è spesso indicato come passaggio per riferimento, anche se tecnicamente in C il passaggio è sempre per valore (del puntatore).
+Di conseguenza, la funzione può modificare direttamente l’array originale.
