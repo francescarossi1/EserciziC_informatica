@@ -1,0 +1,34 @@
+2019/06/18
+
+Domanda 1 
+Un record di attivazione (o stack frame) è una struttura dati allocata sullo stack in occasione della chiamata di una funzione.
+Serve a gestire correttamente:
+l’esecuzione della funzione,
+il passaggio dei parametri,
+il ritorno alla funzione chiamante.
+Un record di attivazione è tipicamente composto da:
+    i parametri passati alla funzione,
+    le variabili locali,
+    l’indirizzo di ritorno alla funzione chiamante,
+    eventuali registri salvati e informazioni di controllo.
+I record di attivazione sono gestiti secondo la politica LIFO (Last In, First Out): 
+l’ultimo record inserito nello stack è il primo a essere rimosso al termine della funzione.
+
+Domanda 2 
+Il ciclo do while viene eseguito solo una volta dopodichè la condizione è falsa. 
+Nel ciclo for dentro al do while nella posizione a[2]=2, a[1]=1 e cosi via. 
+Il ciclo for stampa l'array in base al numero di matricola. 
+La mia matricola è 211964.
+Output: 
+0120406009.
+
+Domanda 3
+struct e union sono tipi di dato aggregati, che permettono di raggruppare più campi sotto un unico nome.
+Una struct permette di memorizzare tutti i campi contemporaneamente.
+La memoria occupata è pari alla somma delle dimensioni dei singoli campi (eventualmente con padding).
+Si usa quando tutti i dati servono nello stesso momento.
+Una union permette di memorizzare un solo campo alla volta.
+Tutti i campi condividono la stessa area di memoria.
+La dimensione della union è pari a quella del campo più grande.
+Si usa quando i dati sono alternativi e non servono contemporaneamente.
+È possibile usare struct e union anche insieme, ad esempio inserendo una union all’interno di una struct, per ottimizzare l’uso della memoria.

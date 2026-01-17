@@ -1,0 +1,64 @@
+2019/02/06
+
+Domanda 1 
+Il valore di un’espressione è il risultato che essa produce quando viene valutata.
+Per esempio, l’espressione 5 + 3 ha valore 8.
+L’effetto di un’espressione è la modifica che essa provoca sullo stato del programma, cioè sulle variabili o sulla memoria.
+Sia i una variabile intera il cui valore iniziale è pari all’ultima cifra del numero di matricola.
+Nel nostro caso l’ultima cifra è 4, quindi inizialmente i = 4.
+Nell’espressione:
+i = i++;
+l’operatore i++ restituisce come valore il valore corrente di i, cioè 4;
+come effetto, incrementa i portandolo a 5;
+successivamente l’assegnamento assegna a i il valore restituito da i++, cioè 4.
+Quindi:
+valore dell’espressione: 4
+effetto finale: i viene prima incrementata a 5, ma poi riassegnata a 4, quindi alla fine i = 4.
+
+Domanda 2 
+numero di matricola = 211964 
+f(1)=4, f(2)=6, f(3)=9...
+Nel ciclo while, la condizione è i < 7.
+L’istruzione:
+*((char*)((int*)s + i))
+interpreta l’indirizzo della stringa come puntatore a int e poi si sposta di i interi.
+Poiché un int occupa 4 byte, si accede al carattere in posizione 4 * i.
+Iterazioni:
+
+    i = 1
+    f(1) = 4 → stampa il carattere in posizione 4 → 'E'
+    i = i + 4 = 5
+
+    i = 5
+    f(5) = 1 → stampa il carattere in posizione 20 → 'U'
+    i = i + 1 = 6
+
+    i = 6
+    f(6) = 2 → stampa il carattere in posizione 24 → 'Y'
+    i = i + 2 = 8
+
+Ora i < 7 è falso e il ciclo termina.
+
+Output del programma:
+EUY
+
+Domanda 3
+I record di attivazione (o stack frame) sono strutture dati allocate sullo stack a ogni chiamata di funzione.
+Servono a gestire correttamente l’esecuzione e il ritorno delle funzioni.
+Un record di attivazione contiene tipicamente:
+parametri della funzione, variabili locali, indirizzo di ritorno, registri salvati.
+Lo stack segue la politica LIFO (Last In, First Out).
+Nel programma dato:
+
+main() → f(3) → f(2)
+
+    main chiama f(3)
+    f(3) chiama f(2)
+    f(2) soddisfa la condizione d <= 2 e termina
+
+Il numero massimo di record di attivazione contemporaneamente presenti sullo stack è 3:
+main
+f(3)
+f(2)
+
+Questo è il massimo perché la ricorsione termina quando d <= 2.
